@@ -20,29 +20,29 @@ public class Controller : MonoBehaviour {
 
 			if (Input.GetKey ("w")) {
 				if(Input.GetKey ("a")){
-					movement.z = Time.deltaTime;
+					movement.x = -Time.deltaTime;
 				}
 				if(Input.GetKey ("d")){
-					movement.z = -Time.deltaTime;
+					movement.x = +Time.deltaTime;
 				}
-				movement.x = Time.deltaTime;
+				movement.z = +Time.deltaTime;
 
 			}else if(Input.GetKey ("s")){
 				if(Input.GetKey ("a")){
-					movement.z = Time.deltaTime;
+					movement.x = -Time.deltaTime;
 				}
 				if(Input.GetKey ("d")){
-					movement.z = -Time.deltaTime;
+					movement.x = +Time.deltaTime;
 				}
-				movement.x = -Time.deltaTime;
+				movement.z = -Time.deltaTime;
 
 			} else if(Input.GetKey ("a")) {
-				movement.z = Time.deltaTime;
+				movement.x = -Time.deltaTime;
 
 			
 
 			}else if(Input.GetKey ("d")){
-				movement.z = -Time.deltaTime;
+				movement.x = +Time.deltaTime;
 			}
 
 			if (Input.GetKey ("left shift")) {

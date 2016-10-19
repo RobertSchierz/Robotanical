@@ -21,17 +21,17 @@ public class ThirdPersonCamera : MonoBehaviour {
 
 	private GameObject player;
 
-	public float distance = 6.0f; 
+	public float distance = 11.0f; 
 	private float nextDistance;
 	public float distanceZoomSpeed = 5.0f;
-	private float minDistance = 3.0f;
-	private float maxDistance = 10.0f;
-	private float distanceTreshold = 4.0f;
+	private float minDistance = 7.0f;
+	private float maxDistance = 16.0f;
+	private float distanceTreshold = 8.0f;
 
 	private Vector3 lookAtPoint = new Vector3(0.0f, 0.0f, 0.0f);
-	public float lookAtHeight = 1.3f;
-	private const float MIN_LOOKAT_HEIGHT = 1.3f;
-	private const float MAX_LOOKAT_HEIGHT = 2.0f;
+	public float lookAtHeight = 4.0f;
+	private const float MIN_LOOKAT_HEIGHT = 4.0f;
+	private const float MAX_LOOKAT_HEIGHT = 5.0f;
 
 	public float currentX = 0.0f;
 	public float currentY = 0.0f; 
@@ -48,7 +48,7 @@ public class ThirdPersonCamera : MonoBehaviour {
 		camTransform = transform; 
 		cam = Camera.main;
 
-		player = GameObject.Find ("Roboter");
+		player = GameObject.Find ("Humanoid");
 		lookAt = player.transform;
 		playerStartXRotation = lookAt.transform.rotation.eulerAngles.y;
 
@@ -65,7 +65,7 @@ public class ThirdPersonCamera : MonoBehaviour {
 
 		if(Input.GetAxis ("Mouse X") != 0){
 
-			lookAt.transform.rotation = Quaternion.Euler(0,playerStartXRotation + currentX,0);
+			lookAt.transform.rotation = Quaternion.Euler(lookAt.eulerAngles.x,playerStartXRotation + currentX,lookAt.eulerAngles.z);
 		}
 
 		if(Input.GetAxis("Mouse ScrollWheel") < 0 ){

@@ -1,0 +1,166 @@
+fileFormatVersion: 2
+guid: 7d16c6a697a1197468c45470b0a68bff
+timeCreated: 1476839281
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Baum
+    100002: Baum_2
+    100004: Baum_3
+    100006: Baum_4
+    100008: "Bl\xE4tter"
+    100010: "Bl\xE4tter_2"
+    100012: "Platonischer_K\xF6rper"
+    100014: "Platonischer_K\xF6rper_1"
+    100016: "Platonischer_K\xF6rper_1_2"
+    100018: "Platonischer_K\xF6rper_2"
+    100020: "Platonischer_K\xF6rper_2_2"
+    100022: "Platonischer_K\xF6rper_2_3"
+    100024: "Platonischer_K\xF6rper_3"
+    100026: "Platonischer_K\xF6rper_3_2"
+    100028: "Platonischer_K\xF6rper_4"
+    100030: "Platonischer_K\xF6rper_4_2"
+    100032: See
+    100034: See_2
+    100036: //RootNode
+    100038: Terrain
+    100040: Terrain_2
+    100042: Terrainfeld
+    100044: Terrainfeld_1
+    400000: Baum
+    400002: Baum_2
+    400004: Baum_3
+    400006: Baum_4
+    400008: "Bl\xE4tter"
+    400010: "Bl\xE4tter_2"
+    400012: "Platonischer_K\xF6rper"
+    400014: "Platonischer_K\xF6rper_1"
+    400016: "Platonischer_K\xF6rper_1_2"
+    400018: "Platonischer_K\xF6rper_2"
+    400020: "Platonischer_K\xF6rper_2_2"
+    400022: "Platonischer_K\xF6rper_2_3"
+    400024: "Platonischer_K\xF6rper_3"
+    400026: "Platonischer_K\xF6rper_3_2"
+    400028: "Platonischer_K\xF6rper_4"
+    400030: "Platonischer_K\xF6rper_4_2"
+    400032: See
+    400034: See_2
+    400036: //RootNode
+    400038: Terrain
+    400040: Terrain_2
+    400042: Terrainfeld
+    400044: Terrainfeld_1
+    2300000: Baum_2
+    2300002: Baum_4
+    2300004: "Platonischer_K\xF6rper"
+    2300006: "Platonischer_K\xF6rper_1"
+    2300008: "Platonischer_K\xF6rper_1_2"
+    2300010: "Platonischer_K\xF6rper_2"
+    2300012: "Platonischer_K\xF6rper_2_2"
+    2300014: "Platonischer_K\xF6rper_2_3"
+    2300016: "Platonischer_K\xF6rper_3"
+    2300018: "Platonischer_K\xF6rper_3_2"
+    2300020: "Platonischer_K\xF6rper_4"
+    2300022: "Platonischer_K\xF6rper_4_2"
+    2300024: See
+    2300026: See_2
+    2300028: Terrain
+    2300030: Terrain_2
+    3300000: Baum_2
+    3300002: Baum_4
+    3300004: "Platonischer_K\xF6rper"
+    3300006: "Platonischer_K\xF6rper_1"
+    3300008: "Platonischer_K\xF6rper_1_2"
+    3300010: "Platonischer_K\xF6rper_2"
+    3300012: "Platonischer_K\xF6rper_2_2"
+    3300014: "Platonischer_K\xF6rper_2_3"
+    3300016: "Platonischer_K\xF6rper_3"
+    3300018: "Platonischer_K\xF6rper_3_2"
+    3300020: "Platonischer_K\xF6rper_4"
+    3300022: "Platonischer_K\xF6rper_4_2"
+    3300024: See
+    3300026: See_2
+    3300028: Terrain
+    3300030: Terrain_2
+    4300000: "Platonischer_K\xF6rper_4"
+    4300002: "Platonischer_K\xF6rper_3"
+    4300004: "Platonischer_K\xF6rper_2"
+    4300006: "Platonischer_K\xF6rper_1"
+    4300008: "Platonischer_K\xF6rper"
+    4300010: Baum_2
+    4300012: See
+    4300014: Terrain
+    4300016: "Platonischer_K\xF6rper_4_2"
+    4300018: "Platonischer_K\xF6rper_3_2"
+    4300020: "Platonischer_K\xF6rper_2_2"
+    4300022: "Platonischer_K\xF6rper_1_2"
+    4300024: "Platonischer_K\xF6rper_2_3"
+    4300026: Baum_4
+    4300028: See_2
+    4300030: Terrain_2
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
