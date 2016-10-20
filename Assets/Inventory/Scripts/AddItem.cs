@@ -5,6 +5,7 @@ public class AddItem : MonoBehaviour {
 
 	[SerializeField]
 	private ItemDatabase iDatabase;
+	public GameObject pressE;
 
 
 	void Update () {
@@ -15,15 +16,23 @@ public class AddItem : MonoBehaviour {
 		Vector3 forwardPlayer = transform.TransformDirection (Vector3.forward);
 		Debug.DrawRay (transform.position, forwardPlayer * 2, Color.red);
 
-		if(Physics.Raycast(transform.position, forwardPlayer, out hit, 2) && Input.GetButton ("Aufheben")){
-				foreach(Item i in iDatabase.InventoryDat){
+		if (Physics.Raycast (transform.position, forwardPlayer, out hit, 2)) {
+			pressE.SetActive (true);
 
-					if(i.itemName == hit.collider.tag){
+			if (Input.GetButton ("Aufheben")) {
+				foreach (Item i in iDatabase.InventoryDat) {
+
+					if (i.itemName == hit.collider.tag) {
 						i.itemAmount += 1;
 						Destroy (hit.collider.gameObject);
 
 					}
 				}
+			}
+
+
+		} else {
+			pressE.SetActive (false);
 		}
 			
 
