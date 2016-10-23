@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEditor;
 
 public class InventorySystem : MonoBehaviour {
 
 	public GameObject InventoryPanel;
 	[SerializeField]
-	private bool isActive;
+	public bool isActive;
 	
 
 	void FixedUpdate () {
@@ -25,18 +26,20 @@ public class InventorySystem : MonoBehaviour {
 		}
 	}
 
-	void ActivateInventory(){
+	public void ActivateInventory(){
 
-		if(InventoryPanel.active == false){
+		if(InventoryPanel.activeSelf == false){
 			InventoryPanel.SetActive ( true );
+			Cursor.visible = true;
 		}
 
 	}
 
-	void DeactivateInventory(){
+	public void DeactivateInventory(){
 
-		if(InventoryPanel.active == true){
+		if(InventoryPanel.activeSelf == true){
 			InventoryPanel.SetActive ( false );
+			Cursor.visible = false;
 		}
 	}
 }

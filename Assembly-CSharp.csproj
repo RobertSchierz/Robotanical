@@ -47,9 +47,11 @@
   <ItemGroup>
      <Compile Include="Assets\Controller.cs" />
      <Compile Include="Assets\Inventory\Scripts\AddItem.cs" />
+     <Compile Include="Assets\Inventory\Scripts\GenerateclickedItem.cs" />
      <Compile Include="Assets\Inventory\Scripts\InventorySystem.cs" />
      <Compile Include="Assets\Inventory\Scripts\Item.cs" />
      <Compile Include="Assets\Inventory\Scripts\ItemDatabase.cs" />
+     <Compile Include="Assets\Plantsystem\CreateGrids.cs" />
      <Compile Include="Assets\ThirdPersonCamera.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />

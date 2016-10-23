@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using System;
+using System.Security.Cryptography.X509Certificates;
 
 
 public class ItemDatabase : MonoBehaviour {
@@ -9,10 +12,23 @@ public class ItemDatabase : MonoBehaviour {
 	void Start(){
 		foreach(Item i in InventoryDat){
 			i.itemAmount = PlayerPrefs.GetInt (i.itemName);
+			Item tempitem = i;
+			i.itemSlot.GetComponent <Button>().onClick.AddListener (() => OnItemClick(tempitem));
+
+
 		}
 
 
 	}
+
+	public void OnItemClick(Item item){
+
+		//Gamobject test = GetComponents (GenerateclickedItem).onClickButton(item);
+		GenerateclickedItem generateitemscript = (GenerateclickedItem)GetComponent (typeof(GenerateclickedItem));
+		generateitemscript.onClickButton (item);
+	}
+
+
 
 	void FixedUpdate(){
 
@@ -33,4 +49,6 @@ public class ItemDatabase : MonoBehaviour {
 		}
 
 	}
+
+
 }
