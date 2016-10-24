@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using UnityEditor.VersionControl;
 
 public class GenerateclickedItem : MonoBehaviour {
 
@@ -22,7 +23,7 @@ public class GenerateclickedItem : MonoBehaviour {
 	// Update is called once per frame
 	void LateUpdate () {
 		if(plantmodisactiv){
-			Debug.DrawRay (planttransform.position, Vector3.down * 100, Color.blue, Mathf.Infinity);
+			//Debug.DrawRay (planttransform.position, Vector3.down * 100, Color.blue, Mathf.Infinity);
 
 			updatePlantBlueprint ();
 
@@ -40,6 +41,14 @@ public class GenerateclickedItem : MonoBehaviour {
 
 		plantbase = Instantiate(Resources.Load("Plantbase")) as GameObject;
 		planttransform = plantbase.transform;
+		BoxCollider plantbaseBoxCollider = (BoxCollider)plantbase.AddComponent <BoxCollider>();
+		plantbaseBoxCollider.size = new Vector3 (2 , 1 , 2);
+		plantbaseBoxCollider.isTrigger = true;
+		plantbase.AddComponent <OnTriggerblueprint>();
+
+
+
+
 	}
 
 	public void updatePlantBlueprint(){
@@ -54,28 +63,23 @@ public class GenerateclickedItem : MonoBehaviour {
 
 		if(isHit){
 
-			//planttransform.position = new Vector3(playertransform.position.x,hitInfo.point.y + plantbaseYOffset ,playertransform.position.z + 2);
-
-
-			//planttransform.position =  new Vector3(0, hitInfo.point.y + plantbaseYOffset, 0 );
-
-			//planttransform.Translate(Vector3.up * (hitInfo.point.y + plantbaseYOffset), Space.World); 
-
-			//planttransform.rotation = Quaternion.Euler ( new Vector3 (playertransform.rotation.x,0,playertransform.rotation.z));
-			//planttransform.RotateAround (player.transform.localPosition,Vector3.up, 20 * Time.deltaTime);
-
-
 			Quaternion rotation = Quaternion.Euler(0 ,playertransform.localEulerAngles.y, 0); 
-			Vector3 plantbasicposition = playertransform.position + rotation * new Vector3 (0, 0, 5);
-			planttransform.position = new Vector3 (plantbasicposition.x, hitInfo.point.y, plantbasicposition.z);
-			//planttransform.Translate(new Vector3(0,hitInfo.point.y,0), Space.World); 
+			Vector3 plantbaseposition = playertransform.position + rotation * new Vector3 (0, 0, 5);
+			planttransform.position = new Vector3 (plantbaseposition.x, hitInfo.point.y, plantbaseposition.z);
 
-		
 
-			//camTransform.LookAt (lookAt.position + lookAtPoint);
-
-			Debug.Log (new Vector3(0, hitInfo.point.y,0));
 		}
+
 			
 	}
+
+	public void blueprintOnTriggerEnter(Material invalidBlueprintMaterial){
+		planttransform.GetChild (0).GetComponent <Renderer>().material = invalidBlueprintMaterial;
+	}
+
+	public void blueprintOnTriggerLeave(Material validBlueprintMaterial){
+		planttransform.GetChild (0).GetComponent <Renderer>().material = validBlueprintMaterial;
+	}
+
+
 }
