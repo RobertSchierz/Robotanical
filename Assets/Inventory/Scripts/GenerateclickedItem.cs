@@ -66,14 +66,15 @@ public class GenerateclickedItem : MonoBehaviour {
 
 
 			Quaternion rotation = Quaternion.Euler(0 ,playertransform.localEulerAngles.y, 0); 
-			planttransform.position = playertransform.position + rotation * new Vector3(0,1,5);
-			planttransform.Translate(Vector3.up * (hitInfo.point.y ), Space.World); 
+			Vector3 plantbasicposition = playertransform.position + rotation * new Vector3 (0, 0, 5);
+			planttransform.position = new Vector3 (plantbasicposition.x, hitInfo.point.y, plantbasicposition.z);
+			//planttransform.Translate(new Vector3(0,hitInfo.point.y,0), Space.World); 
 
 		
 
 			//camTransform.LookAt (lookAt.position + lookAtPoint);
 
-			Debug.Log (hitInfo.point.y );
+			Debug.Log (new Vector3(0, hitInfo.point.y,0));
 		}
 			
 	}

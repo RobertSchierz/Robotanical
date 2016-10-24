@@ -8,7 +8,7 @@
       <File FileName="Assets\Inventory\Scripts\InventorySystem.cs" Line="1" Column="1" />
       <File FileName="Assets\Inventory\Scripts\AddItem.cs" Line="1" Column="1" />
       <File FileName="Assets\Inventory\Scripts\ItemDatabase.cs" Line="1" Column="1" />
-      <File FileName="Assets\Inventory\Scripts\GenerateclickedItem.cs" Line="68" Column="78" />
+      <File FileName="Assets\Inventory\Scripts\GenerateclickedItem.cs" Line="70" Column="102" />
       <File FileName="Assets\Plantsystem\CreateGrids.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
