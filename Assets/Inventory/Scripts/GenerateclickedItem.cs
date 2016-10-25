@@ -2,30 +2,52 @@
 using System.Collections;
 using UnityEditor;
 using UnityEditor.VersionControl;
+using UnityStandardAssets.Vehicles.Ball;
 
 public class GenerateclickedItem : MonoBehaviour {
 
 	public GameObject player;
 	public Transform playertransform;
 	public Transform planttransform;
-	private bool plantmodisactiv;
+	public bool plantmodisactiv;
 	private GameObject plantbase;
 	public float plantbaseYOffset = 0.3f;
+	public bool bluePrintCollides;
+	public GameObject InventoryDatabase;
 
 	// Use this for initialization
 	void Start () {
 		playertransform = player.transform;
 		plantmodisactiv = false;
+		bluePrintCollides = false;
+		InventoryDatabase = GameObject.Find ("InventoryDatabase");
 	}
 
 
 	
 	// Update is called once per frame
-	void LateUpdate () {
+	void Update () {
+		
 		if(plantmodisactiv){
 			//Debug.DrawRay (planttransform.position, Vector3.down * 100, Color.blue, Mathf.Infinity);
 
-			updatePlantBlueprint ();
+
+			if(Input.GetButtonDown ("Submitblueprint") && !bluePrintCollides){
+				Debug.Log ("Blueprint gesetzt");
+				plantmodisactiv = false;
+				plantbase.GetComponent <OnTriggerblueprint>().thisBlueprintIsSet = true;
+
+				foreach(Item i in InventoryDatabase.GetComponent <ItemDatabase>().InventoryDat){
+					//Temporäre Lösung bis PlantDatabase funktioniert
+					if(i.itemName.Equals (plantbase.name.Split ('_')[0])){
+						i.itemAmount--;
+					
+					}
+				}
+
+			}else{
+				updatePlantBlueprint ();
+			}
 
 		}
 
@@ -39,14 +61,14 @@ public class GenerateclickedItem : MonoBehaviour {
 		inventorysystemscript.DeactivateInventory ();
 		inventorysystemscript.isActive = false;
 
+
 		plantbase = Instantiate(Resources.Load("Plantbase")) as GameObject;
+		plantbase.name = i.itemName + "_plant";
 		planttransform = plantbase.transform;
 		BoxCollider plantbaseBoxCollider = (BoxCollider)plantbase.AddComponent <BoxCollider>();
 		plantbaseBoxCollider.size = new Vector3 (2 , 1 , 2);
 		plantbaseBoxCollider.isTrigger = true;
 		plantbase.AddComponent <OnTriggerblueprint>();
-
-
 
 
 	}

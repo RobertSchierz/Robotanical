@@ -53,6 +53,8 @@
      <Compile Include="Assets\Inventory\Scripts\ItemDatabase.cs" />
      <Compile Include="Assets\Plantsystem\CreateGrids.cs" />
      <Compile Include="Assets\Plantsystem\OnTriggerblueprint.cs" />
+     <Compile Include="Assets\Plantsystem\Plant.cs" />
+     <Compile Include="Assets\Plantsystem\PlantsDatabase.cs" />
      <Compile Include="Assets\ThirdPersonCamera.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
