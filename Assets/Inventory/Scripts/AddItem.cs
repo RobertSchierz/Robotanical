@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class AddItem : MonoBehaviour {
 
 	[SerializeField]
-	private ItemDatabase iDatabase;
+
 	public GameObject pressE;
+	public ItemDatabase Database;
 
 
 	void Update () {
@@ -20,7 +22,8 @@ public class AddItem : MonoBehaviour {
 			pressE.SetActive (true);
 
 			if (Input.GetButton ("Aufheben")) {
-				foreach (Item i in iDatabase.InventoryDat) {
+				
+				foreach (Item i in Database.InventoryDat) {
 
 					if (i.itemName == hit.collider.tag) {
 						i.itemAmount += 1;

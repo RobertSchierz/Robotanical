@@ -1,19 +1,32 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Inventory\Scripts\GenerateclickedItem.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Savesystem\Savesystem.cs">
     <Files>
-      <File FileName="Assets\Inventory\Scripts\Item.cs" Line="5" Column="22" />
-      <File FileName="Assets\Inventory\Scripts\AddItem.cs" Line="24" Column="6" />
-      <File FileName="Assets\Inventory\Scripts\ItemDatabase.cs" Line="1" Column="1" />
-      <File FileName="Assets\Plantsystem\CreateGrids.cs" Line="1" Column="1" />
-      <File FileName="Assets\Inventory\Scripts\GenerateclickedItem.cs" Line="40" Column="5" />
-      <File FileName="Assets\Plantsystem\OnTriggerblueprint.cs" Line="36" Column="3" />
-      <File FileName="Assets\Plantsystem\Plant.cs" Line="5" Column="22" />
-      <File FileName="Assets\Plantsystem\PlantsDatabase.cs" Line="21" Column="3" />
+      <File FileName="Assets\Menu\Scripts\TriggerMenuButtons.cs" Line="16" Column="18" />
+      <File FileName="Assets\Inventory\Scripts\AddItem.cs" Line="29" Column="13" />
+      <File FileName="Assets\Inventory\Scripts\ItemDatabase.cs" Line="27" Column="26" />
+      <File FileName="Assets\Inventory\Scripts\GenerateclickedItem.cs" Line="40" Column="70" />
+      <File FileName="Assets\Inventory\Scripts\InventorySystem.cs" Line="12" Column="13" NotebookId="1" />
+      <File FileName="Assets\Menu\Scripts\Menusystem.cs" Line="51" Column="34" NotebookId="1" />
+      <File FileName="Assets\Savesystem\Savesystem.cs" Line="53" Column="3" NotebookId="1" />
+      <File FileName="Assets\Inventory\Scripts\Item.cs" Line="17" Column="8" NotebookId="1" />
     </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>saveobject</Value>
+          <Value>InventoryDat</Value>
+          <Value>Savesystem.savedInventoryList</Value>
+          <Value>InventoryDat._items[0].itemAmount</Value>
+          <Value>Savesystem.savedInventoryList._items[0].itemAmount</Value>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="D:\Unity Arbeitsumgebungen\Spiel\Game\Assets\Savesystem\Savesystem.cs" line="51" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

@@ -65,10 +65,12 @@ public class GenerateclickedItem : MonoBehaviour {
 		plantbase = Instantiate(Resources.Load("Plantbase")) as GameObject;
 		plantbase.name = i.itemName + "_plant";
 		planttransform = plantbase.transform;
-		BoxCollider plantbaseBoxCollider = (BoxCollider)plantbase.AddComponent <BoxCollider>();
+
+		//Wurde ersetzt weil diese Elemente nicht mehr über das Script generiert werden sondern über prefab
+		/*BoxCollider plantbaseBoxCollider = (BoxCollider)plantbase.AddComponent <BoxCollider>();
 		plantbaseBoxCollider.size = new Vector3 (2 , 1 , 2);
 		plantbaseBoxCollider.isTrigger = true;
-		plantbase.AddComponent <OnTriggerblueprint>();
+		plantbase.AddComponent <OnTriggerblueprint>();*/
 
 
 	}

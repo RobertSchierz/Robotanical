@@ -9,7 +9,7 @@ public class InventorySystem : MonoBehaviour {
 	public bool isActive;
 	
 
-	void FixedUpdate () {
+	void Update () {
 
 		if(Input.GetButtonDown ("Inventory")){
 

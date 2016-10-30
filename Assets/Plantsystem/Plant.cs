@@ -5,10 +5,9 @@ using UnityEngine.UI;
 [System.Serializable]
 public class Plant {
 
-
-
 	public string plantName;
 	public string plantType;
+
 
 
 

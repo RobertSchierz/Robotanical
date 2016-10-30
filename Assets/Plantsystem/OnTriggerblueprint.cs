@@ -11,8 +11,11 @@ public class OnTriggerblueprint : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		invalidBlueprintMaterial = Resources.Load ("InvalidMaterialBlueprint", typeof(Material)) as Material;
-		validBlueprintMaterial = Resources.Load ("ValidMaterialBlueprint", typeof(Material)) as Material;
+
+		//Wurde ersetzt weil diese Elemente nicht mehr über das Script generiert werden sondern über prefab
+		//invalidBlueprintMaterial = Resources.Load ("InvalidMaterialBlueprint", typeof(Material)) as Material;
+		//validBlueprintMaterial = Resources.Load ("ValidMaterialBlueprint", typeof(Material)) as Material;
+
 		InventoryDatabase = GameObject.Find ("InventoryDatabase");
 		generateitemscript = InventoryDatabase.GetComponent <GenerateclickedItem>();
 		collidername = "";
