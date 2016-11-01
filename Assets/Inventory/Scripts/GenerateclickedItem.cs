@@ -36,6 +36,9 @@ public class GenerateclickedItem : MonoBehaviour {
 				Debug.Log ("Blueprint gesetzt");
 				plantmodisactiv = false;
 				plantbase.GetComponent <OnTriggerblueprint>().thisBlueprintIsSet = true;
+                Rigidbody plantbaseRigidbody =  (Rigidbody)plantbase.AddComponent<Rigidbody>();
+                plantbaseRigidbody.isKinematic = true;
+                plantbaseRigidbody.useGravity = false;
 
 				foreach(Item i in InventoryDatabase.GetComponent <ItemDatabase>().InventoryDat){
 					//Temporäre Lösung bis PlantDatabase funktioniert

@@ -11,9 +11,8 @@ public class ItemDatabase : MonoBehaviour
 {
 
 
-	//public List<Item> InventoryDat;
-	//private ItemDatabase itemDatabase;
 	public List<Item> InventoryDat = new List<Item> ();
+	public static bool loadOutofSavegame = false;
 
 	void Start ()
 	{
@@ -21,10 +20,8 @@ public class ItemDatabase : MonoBehaviour
 
 
 		Savesystem.savesystem.load ();
-		//InventoryDat = saveobject.inventoryItemList;
 	
 
-		//if(InventoryDat != null){
 		if (Savesystem.savesystem.saveslot.inventoryItemList.Count == 0) {
 			foreach (Item i in InventoryDat) {
 				SaveInventoryItem tempitem = new SaveInventoryItem (i.itemName , i.itemAmount);
@@ -51,7 +48,6 @@ public class ItemDatabase : MonoBehaviour
 	public void OnItemClick (Item item)
 	{
 
-		//Gamobject test = GetComponents (GenerateclickedItem).onClickButton(item);
 		GenerateclickedItem generateitemscript = (GenerateclickedItem)GetComponent (typeof(GenerateclickedItem));
 		generateitemscript.onClickButton (item);
 	}
@@ -73,22 +69,19 @@ public class ItemDatabase : MonoBehaviour
 			}
 				
 			if (i.itemAmount != Savesystem.savesystem.saveslot.getInventoryItemValue (i.itemName)) {
-				Savesystem.savesystem.saveslot.addInventoryItemValue (i.itemName, i.itemAmount);
-				print ("Saved: " + i.itemName);
+
+				if(!loadOutofSavegame){
+					Savesystem.savesystem.saveslot.addInventoryItemValue (i.itemName, i.itemAmount);
+					print ("Saved: " + i.itemName);
+				}else if(loadOutofSavegame){
+					i.itemAmount = Savesystem.savesystem.saveslot.getInventoryItemValue (i.itemName);
+				}
+
 			}
-
-
-			/*if(i.itemAmount != Savesystem.savesystem.getInt (i.itemName, itemDatabase)){
-				Savesystem.savesystem.saveInventoryDatabase (Savesystem.savesystem.setInt (i.itemName, i.itemAmount, itemDatabase));
-				print ("Saved: "+i.itemName);
-			}*/
-
-			/*	if(i.itemAmount != PlayerPrefs.GetInt (i.itemName)){
-				PlayerPrefs.SetInt (i.itemName, i.itemAmount);
-				print ("Saved: "+i.itemName);
-			}*/
+				
 
 		}	
+		loadOutofSavegame = false;
 
 
 

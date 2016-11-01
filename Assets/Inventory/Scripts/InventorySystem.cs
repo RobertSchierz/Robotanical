@@ -31,7 +31,8 @@ public class InventorySystem : MonoBehaviour {
 		if(InventoryPanel.activeSelf == false){
 			InventoryPanel.SetActive ( true );
 			Cursor.visible = true;
-		}
+            GameObject.Find("Camera").GetComponent<ThirdPersonCamera>().enabled = false;
+        }
 
 	}
 
@@ -40,6 +41,7 @@ public class InventorySystem : MonoBehaviour {
 		if(InventoryPanel.activeSelf == true){
 			InventoryPanel.SetActive ( false );
 			Cursor.visible = false;
-		}
+            GameObject.Find("Camera").GetComponent<ThirdPersonCamera>().enabled = true;
+        }
 	}
 }

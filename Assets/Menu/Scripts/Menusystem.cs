@@ -24,7 +24,7 @@ public class Menusystem : MonoBehaviour {
 
 		if(isActive){
 			ActivateMenu ();
-
+			GameObject.Find ("InventorySystem").GetComponent <InventorySystem> ().isActive = false;
 
 		}
 
@@ -41,6 +41,7 @@ public class Menusystem : MonoBehaviour {
 			Cursor.visible = true;
 			Time.timeScale = 0;
 			GameObject.Find ("Camera").GetComponent <ThirdPersonCamera>().enabled = false;
+
 		}
 
 	}
@@ -52,6 +53,7 @@ public class Menusystem : MonoBehaviour {
 			Cursor.visible = false;
 			Time.timeScale = 1;
 			GameObject.Find ("Camera").GetComponent <ThirdPersonCamera>().enabled = true;
+
 		}
 	}
 }

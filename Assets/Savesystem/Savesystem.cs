@@ -12,6 +12,7 @@ public class Savesystem : MonoBehaviour
 {
 	public static Savesystem savesystem;
 	public Saveobject saveslot;
+    public GameObject player;
 
 
 	void Awake(){
@@ -50,14 +51,25 @@ public class Savesystem : MonoBehaviour
 		BinaryFormatter binaryformattersave = new BinaryFormatter ();
 		FileStream file = File.Create (Application.persistentDataPath + "/gameInfo.dat");
 
+        saveImportantVariables();
+        binaryformattersave.Serialize (file, saveslot);
+       
 
-		binaryformattersave.Serialize (file, saveslot);
-
-		file.Close ();
+        file.Close ();
 
 
 
 	}
+
+    public void saveImportantVariables()
+    {
+            saveslot.playerPosition[0] = (float)player.transform.position.x;
+            saveslot.playerPosition[1] = (float)player.transform.position.y;
+            saveslot.playerPosition[2] = (float)player.transform.position.z;
+            Debug.Log("Saved: " + new Vector3(saveslot.playerPosition[0], saveslot.playerPosition[1], saveslot.playerPosition[2]));
+     
+        
+    }
 
 	public void load ()
 	{
@@ -72,21 +84,19 @@ public class Savesystem : MonoBehaviour
 			file.Close ();
 
 			saveslot = saveobject;
-		}
+            loadImportantVariables();
+
+        }
 	
 
 	
 	}
 
-
-
-
-
-	/*public int getInt(string key, List<Item> itemdatalist){
-		int temp = itemdatalist.Where (item => item.itemName == key).SingleOrDefault ().itemAmount;
-		return temp;
-	}*/
-	
+    public void loadImportantVariables()
+    {
+        Debug.Log("Loaded: " + new Vector3(saveslot.playerPosition[0], saveslot.playerPosition[1], saveslot.playerPosition[2]));
+        player.transform.position =  new Vector3(saveslot.playerPosition[0], saveslot.playerPosition[1], saveslot.playerPosition[2]);
+    }
 
 }
 
@@ -97,11 +107,9 @@ public class Saveobject
 
 
 	public List<SaveInventoryItem> inventoryItemList = new List<SaveInventoryItem> ();
+    public float[] playerPosition = new float[3];
 
-
-
-
-	public void addInventoryItemValue(string name, int itemAmount){
+    public void addInventoryItemValue(string name, int itemAmount){
 		foreach(SaveInventoryItem t in inventoryItemList){
 			if(t.itemName.Equals (name)){
 				t.itemAmount = itemAmount;

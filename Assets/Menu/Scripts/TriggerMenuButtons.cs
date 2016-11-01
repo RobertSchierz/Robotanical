@@ -20,11 +20,23 @@ public class TriggerMenuButtons : MonoBehaviour {
 	public void triggerWeiterButton(){
 		GetComponent <Menusystem>().isActive = !GetComponent <Menusystem>().isActive; 
 		GetComponent <Menusystem>().DeactivateMenu (); 
+
 	}
 
 	public void triggerSpeichernButton(){
 
 		Savesystem.savesystem.saveGame ();
 		Debug.Log ("Inventorylist saved at: " + Application.persistentDataPath + "/gameInfo.dat");
+
+		GetComponent <Menusystem>().isActive = !GetComponent <Menusystem>().isActive; 
+		GetComponent <Menusystem>().DeactivateMenu (); 
+	}
+
+	public void triggerLadeButton(){
+		Savesystem.savesystem.load ();
+		ItemDatabase.loadOutofSavegame = true;
+
+		GetComponent <Menusystem>().isActive = !GetComponent <Menusystem>().isActive; 
+		GetComponent <Menusystem>().DeactivateMenu (); 
 	}
 }
