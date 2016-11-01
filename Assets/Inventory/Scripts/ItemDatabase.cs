@@ -7,44 +7,49 @@ using System.Security.Cryptography.X509Certificates;
 using System.Linq;
 
 [Serializable]
-public class ItemDatabase : MonoBehaviour {
+public class ItemDatabase : MonoBehaviour
+{
 
-	public GameObject savesystem;
-	public Saveobject saveobject;
+
 	//public List<Item> InventoryDat;
 	//private ItemDatabase itemDatabase;
 	public List<Item> InventoryDat = new List<Item> ();
-	void Start(){
+
+	void Start ()
+	{
 
 
 
-		saveobject = savesystem.GetComponent <Savesystem> ().load ();
+		Savesystem.savesystem.load ();
 		//InventoryDat = saveobject.inventoryItemList;
 	
 
 		//if(InventoryDat != null){
-			foreach(Item i in InventoryDat){
-			Savesystem.savedInventoryList.Add (i);
+		if (Savesystem.savesystem.saveslot.inventoryItemList.Count == 0) {
+			foreach (Item i in InventoryDat) {
+				SaveInventoryItem tempitem = new SaveInventoryItem (i.itemName , i.itemAmount);
+				Savesystem.savesystem.saveslot.inventoryItemList.Add ( tempitem);
+				i.itemAmount = 0;
 
-				//i.itemAmount = Savesystem.savesystem.getInt (i.itemName, itemDatabase);
+				Item tempitemForListener = i;
+				i.itemSlot.GetComponent <Button> ().onClick.AddListener (() => OnItemClick (tempitemForListener));
 
-				//i.itemAmount = PlayerPrefs.GetInt (i.itemName);
+			}
+		} else {
 
-			//i.itemAmount = savesystem.GetComponent <Savesystem> ().getInt (i.itemName, saveobject.inventoryItemList);
+			foreach (Item i in InventoryDat) {
+				i.itemAmount = Savesystem.savesystem.saveslot.getInventoryItemValue (i.itemName);
 
-				Item tempitem = i;
-				i.itemSlot.GetComponent <Button>().onClick.AddListener (() => OnItemClick(tempitem));
+				Item tempitemForListener = i;
+				i.itemSlot.GetComponent <Button> ().onClick.AddListener (() => OnItemClick (tempitemForListener));
 
 
 			}
-	//	}
-
-
-
-		//Savesystem.savesystem.saveInventoryDatabase (new ItemDatabase());
+		}
 	}
 
-	public void OnItemClick(Item item){
+	public void OnItemClick (Item item)
+	{
 
 		//Gamobject test = GetComponents (GenerateclickedItem).onClickButton(item);
 		GenerateclickedItem generateitemscript = (GenerateclickedItem)GetComponent (typeof(GenerateclickedItem));
@@ -53,26 +58,27 @@ public class ItemDatabase : MonoBehaviour {
 
 
 
-	void FixedUpdate(){
+	void FixedUpdate ()
+	{
 
 
-			foreach (Item i in InventoryDat) {
+		foreach (Item i in InventoryDat) {
 
 
-				i.itemAmountT.text = i.itemAmount.ToString ();
-				if (i.itemAmount > 0) {
-					i.itemSlot.SetActive (true);
-				} else {
-					i.itemSlot.SetActive (false);
-				}
+			i.itemAmountT.text = i.itemAmount.ToString ();
+			if (i.itemAmount > 0) {
+				i.itemSlot.SetActive (true);
+			} else {
+				i.itemSlot.SetActive (false);
+			}
 				
-		/*	if(i.itemAmount != Savesystem.getValue (i.itemName)){
-				Savesystem.addValue (i.itemName, i.itemAmount);
-				print ("Saved: "+i.itemName);
-			}*/
+			if (i.itemAmount != Savesystem.savesystem.saveslot.getInventoryItemValue (i.itemName)) {
+				Savesystem.savesystem.saveslot.addInventoryItemValue (i.itemName, i.itemAmount);
+				print ("Saved: " + i.itemName);
+			}
 
 
-				/*if(i.itemAmount != Savesystem.savesystem.getInt (i.itemName, itemDatabase)){
+			/*if(i.itemAmount != Savesystem.savesystem.getInt (i.itemName, itemDatabase)){
 				Savesystem.savesystem.saveInventoryDatabase (Savesystem.savesystem.setInt (i.itemName, i.itemAmount, itemDatabase));
 				print ("Saved: "+i.itemName);
 			}*/

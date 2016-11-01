@@ -57,6 +57,7 @@
      <Compile Include="Assets\Plantsystem\OnTriggerblueprint.cs" />
      <Compile Include="Assets\Plantsystem\Plant.cs" />
      <Compile Include="Assets\Plantsystem\PlantsDatabase.cs" />
+     <Compile Include="Assets\Savesystem\SaveInventoryItem.cs" />
      <Compile Include="Assets\Savesystem\Savesystem.cs" />
      <Compile Include="Assets\ThirdPersonCamera.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />

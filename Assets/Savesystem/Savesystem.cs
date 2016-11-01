@@ -8,90 +8,79 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System;
 
-public class Savesystem : MonoBehaviour {
-	public static Savesystem savesystem = new Savesystem();
-	public static List<Item> savedInventoryList;
-	public Saveobject savedobject;
+public class Savesystem : MonoBehaviour
+{
+	public static Savesystem savesystem;
+	public Saveobject saveslot;
 
-	// Use this for initialization
-	void Start () {
+
+	void Awake(){
+
 		//ItemDatabaseNow = load ();
-		savedInventoryList = new List<Item> ();
-
-		if(!File.Exists (Application.persistentDataPath + "/gameInfo.dat")){
-			saveGame ();
-		}
-	
-	}
-
-	/*void Awake(){
+		saveslot = new Saveobject ();
 		if(savesystem == null){
-			DontDestroyOnLoad (gameObject);
+			savesystem = this;
+		}
+
+
+	/*	if(savesystem == null){
+			//DontDestroyOnLoad (gameObject);
 			savesystem = this;
 		}else if( savesystem != this){
 			Destroy (gameObject);
 		}
-	}*/
+		*/
+	}
 	
 	// Update is called once per frame
-	void LateUpdate() {
+	void LateUpdate ()
+	{
 		
 	}
 
 
-	public void saveGame(){
+	public void saveGame ()
+	{
 
-		savedobject = new Saveobject ();
-			
-		savedobject.inventoryItemList = savedInventoryList;
-			/*foreach(Item i in iBase.GetComponent <ItemDatabase> ().InventoryDat){
+
+		/*foreach(Item i in iBase.GetComponent <ItemDatabase> ().InventoryDat){
 			savedobject.inventoryItemList.Add (i);
 		}*/
 
-			BinaryFormatter binaryformatter = new BinaryFormatter ();
-			FileStream file = File.Create (Application.persistentDataPath + "/gameInfo.dat");
+		BinaryFormatter binaryformattersave = new BinaryFormatter ();
+		FileStream file = File.Create (Application.persistentDataPath + "/gameInfo.dat");
 
-			binaryformatter.Serialize (file, savedobject);
 
-			file.Close ();
+		binaryformattersave.Serialize (file, saveslot);
+
+		file.Close ();
 
 
 
 	}
 
-	public Saveobject load(){
+	public void load ()
+	{
 
 
-			BinaryFormatter binaryformatter = new BinaryFormatter ();
+		if (File.Exists (Application.persistentDataPath + "/gameInfo.dat")) {
+			BinaryFormatter binaryformatterload = new BinaryFormatter ();
 			FileStream file = File.Open (Application.persistentDataPath + "/gameInfo.dat", FileMode.Open);
-		Saveobject saveobject = (Saveobject)binaryformatter.Deserialize (file);
+			Saveobject saveobject = (Saveobject)binaryformatterload.Deserialize (file);
 
 			Debug.Log (Application.persistentDataPath + "/gameInfo.dat");
-		file.Close ();
-			return saveobject;
+			file.Close ();
+
+			saveslot = saveobject;
+		}
+	
 
 	
 	}
-	/*
-	public static void addValue(string name, int itemAmount){
-		foreach(Item t in savedInventoryList){
-			if(t.itemName.Equals (name)){
-				t.itemAmount = itemAmount;
-			}
-		}
-	}
 
-	public static int getValue(string name){
-		int itemReturnAmount = 0;
-		foreach(Item t in savedInventoryList){
-			if (t.itemName.Equals (name)) {
-				itemReturnAmount = t.itemAmount;
-			}
 
-		}
-		return itemReturnAmount;
-	}
-*/
+
+
 
 	/*public int getInt(string key, List<Item> itemdatalist){
 		int temp = itemdatalist.Where (item => item.itemName == key).SingleOrDefault ().itemAmount;
@@ -103,21 +92,39 @@ public class Savesystem : MonoBehaviour {
 
 
 [Serializable]
-public class Saveobject {
+public class Saveobject
+{
 
 
-	public List<Item> inventoryItemList;
+	public List<SaveInventoryItem> inventoryItemList = new List<SaveInventoryItem> ();
 
-	/*public Saveobject(List<Item> _inventoryItemList){
 
-		if(_inventoryItemList == null){
-			inventoryItemList = new List<Item> ();
-		}else{
-			inventoryItemList = _inventoryItemList;
+
+
+	public void addInventoryItemValue(string name, int itemAmount){
+		foreach(SaveInventoryItem t in inventoryItemList){
+			if(t.itemName.Equals (name)){
+				t.itemAmount = itemAmount;
+			}
 		}
+	}
+
+	public int getInventoryItemValue(string name){
+		int itemReturnAmount = 0;
+		foreach(SaveInventoryItem t in inventoryItemList){
+			if (t.itemName.Equals (name)) {
+				itemReturnAmount = t.itemAmount;
+			}
+
+		}
+		return itemReturnAmount;
+	}
 
 
 
 
-}*/	
+
+
+
+
 }
