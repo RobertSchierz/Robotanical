@@ -71,16 +71,15 @@
   <ItemGroup>
     <Compile Include="Assets\Controller.cs" />
     <Compile Include="Assets\Inventory\Scripts\AddItem.cs" />
-    <Compile Include="Assets\Inventory\Scripts\GenerateclickedItem.cs" />
     <Compile Include="Assets\Inventory\Scripts\InventorySystem.cs" />
     <Compile Include="Assets\Inventory\Scripts\Item.cs" />
     <Compile Include="Assets\Inventory\Scripts\ItemDatabase.cs" />
     <Compile Include="Assets\Menu\Scripts\Menusystem.cs" />
     <Compile Include="Assets\Menu\Scripts\TriggerMenuButtons.cs" />
-    <Compile Include="Assets\Plantsystem\CreateGrids.cs" />
+    <Compile Include="Assets\Plantsystem\GenerateclickedItem.cs" />
+    <Compile Include="Assets\Plantsystem\NOT IN GAME_CreateGrids.cs" />
     <Compile Include="Assets\Plantsystem\OnTriggerblueprint.cs" />
     <Compile Include="Assets\Plantsystem\Plant.cs" />
-    <Compile Include="Assets\Plantsystem\PlantsDatabase.cs" />
     <Compile Include="Assets\Savesystem\SaveInventoryItem.cs" />
     <Compile Include="Assets\Savesystem\Savesystem.cs" />
     <Compile Include="Assets\ThirdPersonCamera.cs" />

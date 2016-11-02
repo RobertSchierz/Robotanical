@@ -24,7 +24,7 @@ public class ItemDatabase : MonoBehaviour
 
 		if (Savesystem.savesystem.saveslot.inventoryItemList.Count == 0) {
 			foreach (Item i in InventoryDat) {
-				SaveInventoryItem tempitem = new SaveInventoryItem (i.itemName , i.itemAmount);
+				SaveInventoryItem tempitem = new SaveInventoryItem (i.itemName , i.itemAmount, i.plantnumber);
 				Savesystem.savesystem.saveslot.inventoryItemList.Add ( tempitem);
 				i.itemAmount = 0;
 

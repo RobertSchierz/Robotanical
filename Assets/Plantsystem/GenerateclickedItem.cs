@@ -14,6 +14,7 @@ public class GenerateclickedItem : MonoBehaviour {
 	public float plantbaseYOffset = 0.3f;
 	public bool bluePrintCollides;
 	public GameObject InventoryDatabase;
+    public int currentPlantNumber;
 
 	// Use this for initialization
 	void Start () {
@@ -48,6 +49,9 @@ public class GenerateclickedItem : MonoBehaviour {
 					}
 				}
 
+                Savesystem.savesystem.saveslot.addPlantSetList(new Plant().createPlant(currentPlantNumber, planttransform.position.x, planttransform.position.y, planttransform.position.z));
+
+
 			}else{
 				updatePlantBlueprint ();
 			}
@@ -68,15 +72,16 @@ public class GenerateclickedItem : MonoBehaviour {
 		plantbase = Instantiate(Resources.Load("Plantbase")) as GameObject;
 		plantbase.name = i.itemName + "_plant";
 		planttransform = plantbase.transform;
+        currentPlantNumber = i.plantnumber;
 
-		//Wurde ersetzt weil diese Elemente nicht mehr über das Script generiert werden sondern über prefab
-		/*BoxCollider plantbaseBoxCollider = (BoxCollider)plantbase.AddComponent <BoxCollider>();
+        //Wurde ersetzt weil diese Elemente nicht mehr über das Script generiert werden sondern über prefab
+        /*BoxCollider plantbaseBoxCollider = (BoxCollider)plantbase.AddComponent <BoxCollider>();
 		plantbaseBoxCollider.size = new Vector3 (2 , 1 , 2);
 		plantbaseBoxCollider.isTrigger = true;
 		plantbase.AddComponent <OnTriggerblueprint>();*/
 
 
-	}
+    }
 
 	public void updatePlantBlueprint(){
 		

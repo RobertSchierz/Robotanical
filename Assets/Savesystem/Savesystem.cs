@@ -109,6 +109,8 @@ public class Saveobject
 	public List<SaveInventoryItem> inventoryItemList = new List<SaveInventoryItem> ();
     public float[] playerPosition = new float[3];
 
+    public List<Plant> plantsSetList = new List<Plant>();
+
     public void addInventoryItemValue(string name, int itemAmount){
 		foreach(SaveInventoryItem t in inventoryItemList){
 			if(t.itemName.Equals (name)){
@@ -127,6 +129,11 @@ public class Saveobject
 		}
 		return itemReturnAmount;
 	}
+
+    public void addPlantSetList(Plant plant)
+    {
+        plantsSetList.Add(plant);
+    }
 
 
 

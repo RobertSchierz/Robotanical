@@ -9,7 +9,7 @@ public class ThirdPersonCamera : MonoBehaviour {
 	public float yAngleMin = 25.0f;
 	private const float MAX_YANGLE_MIN = 45.0f;
 	private const float MIN_YANGLE_MIN = 25.0f;
-	private float yAAngleMax = 60.0f;
+	private float yAAngleMax = 70.0f;
 
 	// Sensitivität der Mausbewegung
 	private const float MOUSE_SENSITIVITY = 1.5f;
